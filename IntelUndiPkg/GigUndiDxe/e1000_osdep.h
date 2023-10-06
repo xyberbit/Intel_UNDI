@@ -33,6 +33,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <Base.h>
 #include <Library/BaseLib.h>
 #include <Library/BaseMemoryLib.h>
+#include <Library/DebugLib.h>
 
 
 #ifndef EFI_SPECIFICATION_VERSION
@@ -280,13 +281,14 @@ E1000WriteRegIo (
 typedef BOOLEAN boolean_t;
 
 
-#if (0)
+#if (1)
 #define DEBUGFUNC(F)
-#define DEBUGOUT(s) Aprint (s);
-#define DEBUGOUT1(s, a) Aprint (s, a);
-#define DEBUGOUT2(s, a, b) Aprint (s, a, b);
-#define DEBUGOUT3(s, a, b, c) Aprint (s, a, b, c);
-#define DEBUGOUT7(s, a, b, c, d, e, f, g) Aprint (s, a, b, c, d, e, f, g);
+#define _xD(...) DEBUG((DEBUG_INFO, __VA_ARGS__))
+#define DEBUGOUT(s) _xD (s)
+#define DEBUGOUT1(s, a) _xD (s, a)
+#define DEBUGOUT2(s, a, b) _xD (s, a, b)
+#define DEBUGOUT3(s, a, b, c) _xD (s, a, b, c)
+#define DEBUGOUT7(s, a, b, c, d, e, f, g) _xD (s, a, b, c, d, e, f, g)
 #else /* NOT (0) */
 
 /** Macro wrapper for shared code, blank here

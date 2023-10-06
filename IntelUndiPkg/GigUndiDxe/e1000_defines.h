@@ -1677,11 +1677,11 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #ifndef UNREFERENCED_XPARAMETER
 #define UNREFERENCED_XPARAMETER
-#define UNREFERENCED_1PARAMETER(_p) (_p)
-#define UNREFERENCED_2PARAMETER(_p, _q) (_p); (_q);
-#define UNREFERENCED_3PARAMETER(_p, _q, _r) (_p); (_q); (_r);
-#define UNREFERENCED_4PARAMETER(_p, _q, _r, _s) (_p); (_q); (_r); (_s);
-#define UNREFERENCED_5PARAMETER(_p, _q, _r, _s, _t) (_p); (_q); (_r); (_s); (_t);
+#define UNREFERENCED_1PARAMETER(_p) if(_p)
+#define UNREFERENCED_2PARAMETER(_p, _q) if(_p)if(_q)
+#define UNREFERENCED_3PARAMETER(_p, _q, _r) if(_p)if(_q)if(_r)
+#define UNREFERENCED_4PARAMETER(_p, _q, _r, _s) if(_p)if(_q)if(_r)if(_s)
+#define UNREFERENCED_5PARAMETER(_p, _q, _r, _s, _t) if(_p)if(_q)if(_r)if(_s)if(_t)
 #endif /* UNREFERENCED_XPARAMETER */
 #ifndef E1000_UNUSEDARG
 #define E1000_UNUSEDARG

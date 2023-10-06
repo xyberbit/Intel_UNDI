@@ -103,7 +103,7 @@ STATIC s32  e1000_reset_hw_ich8lan(struct e1000_hw *hw);
 STATIC s32  e1000_init_hw_ich8lan(struct e1000_hw *hw);
 STATIC s32  e1000_setup_link_ich8lan(struct e1000_hw *hw);
 STATIC s32  e1000_setup_copper_link_ich8lan(struct e1000_hw *hw);
-STATIC s32 e1000_disable_ulp_lpt_lp(struct e1000_hw *hw, bool force);
+//STATIC s32 e1000_disable_ulp_lpt_lp(struct e1000_hw *hw, bool force);
 STATIC s32  e1000_setup_copper_link_pch_lpt(struct e1000_hw *hw);
 STATIC s32  e1000_get_link_up_info_ich8lan(struct e1000_hw *hw,
 					   u16 *speed, u16 *duplex);
@@ -1115,13 +1115,13 @@ STATIC s32 e1000_check_for_copper_link_ich8lan(struct e1000_hw *hw)
 	if (!mac->get_link_status)
 		return E1000_SUCCESS;
 
-		/* First we want to see if the MII Status Register reports
-		 * link.  If so, then we want to get the current speed/duplex
-		 * of the PHY.
-		 */
-		ret_val = e1000_phy_has_link_generic(hw, 1, 0, &link);
-		if (ret_val)
-			return ret_val;
+	/* First we want to see if the MII Status Register reports
+	 * link.  If so, then we want to get the current speed/duplex
+	 * of the PHY.
+	 */
+	ret_val = e1000_phy_has_link_generic(hw, 1, 0, &link);
+	if (ret_val)
+		return ret_val;
 
 	if (hw->mac.type == e1000_pchlan) {
 		ret_val = e1000_k1_gig_workaround_hv(hw, link);
